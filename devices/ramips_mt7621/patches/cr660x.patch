@@ -183,20 +183,6 @@ index bdaeac2cb16e..72fbd3930a80 100644
 +	model = "Xiaomi Mi Router CR6606 / CR6608 / CR6609";
 +};
 
---- a/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
-+++ b/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
-@@ -131,9 +131,7 @@ tplink,tl-wpa8631p-v3)
- xiaomi,mi-router-ac2100)
- 	ucidef_set_led_netdev "wan-blue" "WAN (blue)" "blue:wan" "wan"
- 	;;
--xiaomi,mi-router-cr6606|\
--xiaomi,mi-router-cr6608|\
--xiaomi,mi-router-cr6609)
-+xiaomi,mi-router-cr660x)
- 	ucidef_set_led_netdev "internet" "Internet" "blue:net" "wan"
- 	;;
- xiaomi,redmi-router-ac2100)
-
 --- a/target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 +++ b/target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 @@ -28,9 +28,7 @@ ramips_setup_interfaces()
