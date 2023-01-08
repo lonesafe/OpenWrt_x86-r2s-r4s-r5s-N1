@@ -175,6 +175,8 @@ jobs:
         cp -rf devices/common/. openwrt/
         cp -rf devices/${{matrix.target}}/. openwrt/
         cp -rf devices openwrt/
+        cp devices/midea_morr-qr011/mt7621_midea_morr-qr011.dts openwrt/target/linux/ramips/dts/mt7621_midea_morr-qr011.dts
+        cat devices/midea_morr-qr011/mt7621.mk >> openwrt/target/linux/ramips/image/mt7621.mk
         cd openwrt
         chmod +x devices/common/$DIY_SH
         /bin/bash "devices/common/$DIY_SH"
