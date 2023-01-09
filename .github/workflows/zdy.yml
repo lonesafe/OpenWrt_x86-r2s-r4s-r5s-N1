@@ -213,6 +213,7 @@ jobs:
       run: |
         cp devices/midea_morr-qr011/mt7621_midea_morr-qr011.dts openwrt/target/linux/ramips/dts/mt7621_midea_morr-qr011.dts
         cat devices/midea_morr-qr011/mt7621.mk >> openwrt/target/linux/ramips/image/mt7621.mk
+        cat openwrt/target/linux/ramips/image/mt7621.mk
         cd openwrt
         make defconfig
         cat .config
