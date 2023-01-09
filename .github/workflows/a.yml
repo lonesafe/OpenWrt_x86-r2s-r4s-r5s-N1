@@ -40,9 +40,10 @@ jobs:
     - name: create
       run: |
         mkdir -p openwrt/bin/targets
-        cd openwrt/bin/targets
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > a.txt
-        cat a.txt
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > openwrt/bin/targets/a.txt
+        cat openwrt/bin/targets/a.txt
+        apt install -y zip
+        zip -r a.zip openwrt
     - name: Deploy imagebuilder to server
       uses: easingthemes/ssh-deploy@main
       continue-on-error: true
@@ -50,7 +51,7 @@ jobs:
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         ARGS: "-avzr"
-        SOURCE: openwrt/bin/targets
+        SOURCE: a.zip
         REMOTE_HOST: '150.230.59.22'
         REMOTE_PORT: '3122'
         REMOTE_USER: root
