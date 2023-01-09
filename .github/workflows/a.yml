@@ -42,7 +42,7 @@ jobs:
         mkdir -p openwrt/bin/targets
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > openwrt/bin/targets/a.txt
         cat openwrt/bin/targets/a.txt
-        apt install -y zip
+        sudo -E apt-get -qq install zip
         zip -r a.zip openwrt
     - name: Deploy imagebuilder to server
       uses: easingthemes/ssh-deploy@main
