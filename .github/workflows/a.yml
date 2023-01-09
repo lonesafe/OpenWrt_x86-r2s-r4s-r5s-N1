@@ -39,7 +39,10 @@ jobs:
     steps:
     - name: create
       run: |
-        echo "asdf" > a.txt
+        mkdir -p openwrt/bin/targets
+        cd openwrt/bin/targets
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > a.txt
+        cat a.txt
     - name: Deploy imagebuilder to server
       uses: easingthemes/ssh-deploy@main
       continue-on-error: true
